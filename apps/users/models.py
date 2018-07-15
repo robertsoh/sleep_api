@@ -11,3 +11,6 @@ class User(AbstractUser):
     )
     sex = models.CharField('Sexo', max_length=1, choices=SEXO_CHOICES)
     username = models.CharField('Username', max_length=50, unique=True)
+
+    def last_event(self):
+        return self.events.last()
