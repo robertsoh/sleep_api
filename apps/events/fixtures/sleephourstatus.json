@@ -1,0 +1,65 @@
+[
+{
+    "model": "events.sleephourstatus",
+    "pk": 1,
+    "fields": {
+        "min_hour": 0,
+        "max_hour": 0,
+        "status": 7
+    }
+},
+{
+    "model": "events.sleephourstatus",
+    "pk": 2,
+    "fields": {
+        "min_hour": 1,
+        "max_hour": 1,
+        "status": 6
+    }
+},
+{
+    "model": "events.sleephourstatus",
+    "pk": 3,
+    "fields": {
+        "min_hour": 2,
+        "max_hour": 2,
+        "status": 3
+    }
+},
+{
+    "model": "events.sleephourstatus",
+    "pk": 4,
+    "fields": {
+        "min_hour": 3,
+        "max_hour": 4,
+        "status": 2
+    }
+},
+{
+    "model": "events.sleephourstatus",
+    "pk": 5,
+    "fields": {
+        "min_hour": 5,
+        "max_hour": 6,
+        "status": 1
+    }
+},
+{
+    "model": "events.sleephourstatus",
+    "pk": 6,
+    "fields": {
+        "min_hour": 7,
+        "max_hour": 9,
+        "status": 4
+    }
+},
+{
+    "model": "events.sleephourstatus",
+    "pk": 7,
+    "fields": {
+        "min_hour": 9,
+        "max_hour": 48,
+        "status": 5
+    }
+}
+]

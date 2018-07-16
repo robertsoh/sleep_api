@@ -1,0 +1,58 @@
+[
+{
+    "model": "events.status",
+    "pk": 1,
+    "fields": {
+        "name": "Aburrido"
+    }
+},
+{
+    "model": "events.status",
+    "pk": 2,
+    "fields": {
+        "name": "Estudiante"
+    }
+},
+{
+    "model": "events.status",
+    "pk": 3,
+    "fields": {
+        "name": "Developper"
+    }
+},
+{
+    "model": "events.status",
+    "pk": 4,
+    "fields": {
+        "name": "Feliz"
+    }
+},
+{
+    "model": "events.status",
+    "pk": 5,
+    "fields": {
+        "name": "Snorlax"
+    }
+},
+{
+    "model": "events.status",
+    "pk": 6,
+    "fields": {
+        "name": "Zombie"
+    }
+},
+{
+    "model": "events.status",
+    "pk": 7,
+    "fields": {
+        "name": "Estudiante ADS"
+    }
+},
+{
+    "model": "events.status",
+    "pk": 8,
+    "fields": {
+        "name": "Durmiendo"
+    }
+}
+]
