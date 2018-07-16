@@ -47,10 +47,3 @@ class InitDataView(APIView):
 
 class UserStateCreateAPIView(CreateAPIView):
     serializer_class = UserStateSerializer
-
-    def post(self, request, *args, **kwargs):
-        data = self.request.data
-        data.update({
-            'user': self.request.user.id
-        })
-        return super().post(request, *args, **kwargs)

@@ -23,4 +23,9 @@ class UserStateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserState
-        fields = ('message', 'user')
+        fields = ('message',)
+
+    def validate(self, data):
+        data['user'] = self.context.get('request').user
+        return super().validate(data)
+
