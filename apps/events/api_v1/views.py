@@ -47,7 +47,7 @@ class EventAwakeAPIView(APIView):
         data_response = {
             'status': user_status.status_id,
             'status_label': user_status.status.name,
-            'sleep_hour': event.sleep_hour
+            'sleep_hour': event.sleep_time()
         }
         return Response(data_response, status=201)
 

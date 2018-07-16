@@ -38,6 +38,6 @@ class InitDataView(APIView):
         data = {
             'status': status.id if status else None,
             'status_label': status.name if status else None,
-            'sleep_hour': last_event.sleep_hour if last_event else None
+            'sleep_hour': last_event.sleep_time() if last_event else None
         }
         return Response(data, status=200)

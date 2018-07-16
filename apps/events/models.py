@@ -24,6 +24,7 @@ class Event(models.Model):
     user = models.ForeignKey(User, related_name='events')
     type = models.CharField(max_length=10, choices=TYPE_CHOICES)
     sleep_hour = models.IntegerField(null=True, blank=True)
+    sleep_minutes = models.IntegerField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
@@ -36,6 +37,14 @@ class Event(models.Model):
         if last_event:
             diff_seconds = datetime.now() - last_event.created
             self.sleep_hour = int(diff_seconds.total_seconds() / 3600)
+            self.sleep_minutes = int(diff_seconds.total_seconds() / 60)
+
+    def sleep_time(self):
+        if self.sleep_minutes:
+            sleep_time = '{}:{}'.format(int(self.sleep_minutes / 60), self.sleep_minutes % 60)
+        else:
+            sleep_time = '{}:{}'.format(self.sleep_hour or 0, 0)
+        return sleep_time
 
 
 class Status(models.Model):
