@@ -1,0 +1,8 @@
+---
+applications:
+- name: sleep_api
+  memory: 250M
+  instances: 1
+  buildpack: python_buildpack
+  services:
+  - sleep_api

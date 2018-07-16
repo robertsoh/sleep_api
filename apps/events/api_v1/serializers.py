@@ -13,6 +13,6 @@ class EventSerializer(serializers.ModelSerializer):
     def validate(self, data):
         user = data.get('user')
         last_event = user.last_event()
-        if last_event.type == data.get('type'):
+        if last_event and last_event.type == data.get('type'):
             raise ValidationError('The user is already {}'.format(last_event.get_type_display()))
         return data
