@@ -14,3 +14,6 @@ class User(AbstractUser):
 
     def last_event(self):
         return self.events.last()
+
+    def last_status(self):
+        return self.status.last()
