@@ -4,7 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from apps.users.api_v1.serializers import UserSerializer
+from apps.users.api_v1.serializers import UserSerializer, UserStateSerializer
 from apps.users.models import User
 
 
@@ -34,10 +34,23 @@ class InitDataView(APIView):
         user = self.request.user
         last_status = user.last_status()
         last_event = user.last_event()
+        last_state = user.last_state()
         status = last_status.status
         data = {
             'status': status.id if status else None,
             'status_label': status.name if status else None,
-            'sleep_hour': last_event.sleep_time() if last_event else None
+            'sleep_hour': last_event.sleep_time() if last_event else None,
+            'message': last_state.message if last_state else ''
         }
         return Response(data, status=200)
+
+
+class UserStateCreateAPIView(CreateAPIView):
+    serializer_class = UserStateSerializer
+
+    def post(self, request, *args, **kwargs):
+        data = self.request.data
+        data.update({
+            'user': self.request.user.id
+        })
+        return super().post(request, *args, **kwargs)

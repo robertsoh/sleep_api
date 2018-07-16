@@ -17,3 +17,14 @@ class User(AbstractUser):
 
     def last_status(self):
         return self.status.last()
+
+    def last_state(self):
+        return self.states.last()
+
+
+class UserState(models.Model):
+    message = models.CharField(max_length=255)
+    user = models.ForeignKey(User, related_name='states')
+
+    def __str__(self):
+        return '{}: {}'.format(self.user, self.message)
