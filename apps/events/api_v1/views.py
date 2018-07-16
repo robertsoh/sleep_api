@@ -52,6 +52,6 @@ class EventAwakeAPIView(APIView):
         return Response(data_response, status=201)
 
     def create_user_status(self, event):
-        sleep_hour_status = SleepHourStatus.objects.filter(min_hour__gte=event.sleep_hour,
-                                                           max_hour__lte=event.sleep_hour).first()
+        sleep_hour_status = SleepHourStatus.objects.filter(min_hour__lte=event.sleep_hour,
+                                                           max_hour__gte=event.sleep_hour).first()
         return UserStatus.objects.create(user=event.user, status=sleep_hour_status.status)
