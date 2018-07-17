@@ -35,11 +35,11 @@ class InitDataView(APIView):
         last_status = user.last_status()
         last_event = user.last_event()
         last_state = user.last_state()
-        status = last_status.status
+        status = last_status.status if last_status else None
         data = {
-            'status': status.id if status else None,
-            'status_label': status.name if status else None,
-            'sleep_hour': last_event.sleep_time() if last_event else None,
+            'status': status.id if status else '',
+            'status_label': status.name if status else '',
+            'sleep_hour': last_event.sleep_time() if last_event else '',
             'message': last_state.message if last_state else ''
         }
         return Response(data, status=200)
