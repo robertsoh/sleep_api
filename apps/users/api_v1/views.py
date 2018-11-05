@@ -46,4 +46,6 @@ class InitDataView(APIView):
 
 
 class UserStateCreateAPIView(CreateAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
     serializer_class = UserStateSerializer

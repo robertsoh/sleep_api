@@ -12,6 +12,13 @@ class EventSleepAPIView(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request, *args, **kwargs):
+        """
+        Servicio para registrar el momento en el que un usuario duerme
+
+        :param user: Id del usuario
+        :param type: Enviar el valor SLEEP para registrar dormir
+        :return:
+        """
         data = {
             'user': request.user.id,
             'type': Event.TYPE_SLEEP
